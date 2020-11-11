@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "SeedData";
+    var Data = ViewData["Data"] as List<Create_Table.Models.Type>;
+
+}
+
+<h1>SeedData</h1>
+
+<div>
+    <form asp-controller="SaveData" asp-action="SeedData" method="post">
+        @foreach (var item in Data)
+        {
+
+            <div class="form-group">
+                <label class="control-label font-weight-bold " style="color: limegreen">@item.Field_Name  (@item.Field_Type)</label>
+
+                <input type="text" name="value." class="form-control border-dark col-md-3" style="margin-right:12px" />
+            </div>
+            @*@Html.ActionLink("Click Me", "SaveData", "SaveData", new { id = item.TableId }, new { nom = item.mem_age })*@
+
+            @*<div class="form-group">
+                <label class="control-label">City</label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>*@
+
+
+
+        }
+
+        @*@if (Model != null)
+        {
+        @for (int i = 0; i < Model.Count; i++)bhuhyjjjjj
+        {
+            @Html.TextBoxFor(m => Model[i].TableId)
+            @Html.TextBoxFor(m => Model[i].Column)
+            @Html.TextBoxFor(m => Model[i].FieldValue)
+
+
+        }
+        }*@
+
+
+        <div class="form-group ml-3 mt-2">
+            <button type="submit" class="btn btn-primary btn-success">ثبت</button>
+        </div>
+    </form>
+</div>
+
+
+
