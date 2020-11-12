@@ -1,11 +1,10 @@
-﻿namespace Create_Table.Models
+﻿namespace Create_Table.ViewModel
 {
-    public class Type
+    public class TypeView
     {
-        public int Id { get; set; }
         public int TableId { get; set; }
         public string Field_Name { get; set; }
         public string Field_Type { get; set; }
-
+        public string Value { get; set; }
     }
 }

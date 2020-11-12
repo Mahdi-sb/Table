@@ -10,7 +10,7 @@ namespace Create_Table.Service.Add_Table
 {
     public class Check : ICheck
     {
-        public string Check_Column_Name(AppDBcontext Context, TableView model)
+        public string CheckColumnName(AppDBcontext Context, TableView model)
         {
             var flag = Context.Tables.Where(x => x.TableName == model.TableName).ToList().Count;
             if (flag > 0)
@@ -20,7 +20,7 @@ namespace Create_Table.Service.Add_Table
             }
             return null;
         }       
-        public string Check_Column_Count(TableView model)
+        public string CheckColumnCount(TableView model)
         {
             var count = model.TypeList.Count;
             if (count == 0)
@@ -31,7 +31,7 @@ namespace Create_Table.Service.Add_Table
             return null;
         }
 
-        public string Check_Name(TableView model)
+        public string CheckName(TableView model)
         {
             var name = " ";
             foreach (var item in model.TypeList)
@@ -48,13 +48,13 @@ namespace Create_Table.Service.Add_Table
             return null;
         }
 
-        public string Check_Input(AppDBcontext Context, TableView model)
+        public string CheckInput(AppDBcontext Context, TableView model)
         {
             
 
-            if (Check_Name(model) != null) return Check_Name(model);
-            if (Check_Column_Count(model) != null) return Check_Column_Count(model);
-            if (Check_Column_Name(Context, model) != null) return Check_Column_Name(Context,model);
+            if (CheckName(model) != null) return CheckName(model);
+            if (CheckColumnCount(model) != null) return CheckColumnCount(model);
+            if (CheckColumnName(Context, model) != null) return CheckColumnName(Context,model);
             return null;
 
 

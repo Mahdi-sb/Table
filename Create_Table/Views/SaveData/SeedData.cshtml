@@ -1,44 +1,37 @@
-﻿@{
+﻿@model List<Create_Table.ViewModel.TypeView>
+@{
     ViewData["Title"] = "SeedData";
-    var Data = ViewData["Data"] as List<Create_Table.Models.Type>;
 
 }
 
 <h1>SeedData</h1>
 
+
+@if (ViewData["ErrorMessage"] != null)
+{
+    <div class="text-danger float-right" dir="rtl">@ViewData["ErrorMessage"]</div>
+    <br />
+}
+
+
+
 <div>
     <form asp-controller="SaveData" asp-action="SeedData" method="post">
-        @foreach (var item in Data)
+
+        @for (int i = 0; i < Model.Count; i++)
         {
 
-            <div class="form-group">
-                <label class="control-label font-weight-bold " style="color: limegreen">@item.Field_Name  (@item.Field_Type)</label>
-
-                <input type="text" name="value." class="form-control border-dark col-md-3" style="margin-right:12px" />
+        <div class="form-group ">
+            <label asp-for="values[@i].FieldValue" class="control-label font-weight-bold " style="color: limegreen">@Model[i].Field_Name  (@Model[i].Field_Type)</label>
+            <div>
+                <input type="hidden" value="@Model[i].Field_Name" name="values[@i].Column" class="form-control border-dark col-md-3" style="margin-right:12px" />
+                <input type="hidden" value="@Model[i].TableId" name="values[@i].TableId" class="form-control border-dark col-md-3" style="margin-right:12px" />
+                <input type="hidden" value="@Model[i].Field_Type" name="values[@i].Type" class="form-control border-dark col-md-3" style="margin-right:12px" />
+                <input type="text"   value="@Model[i].Value" name="values[@i].FieldValue" class="form-control border-dark col-md-3" style="margin-right:12px" />
+                <span asp-validation-for="values[@i].FieldValue"></span>
             </div>
-            @*@Html.ActionLink("Click Me", "SaveData", "SaveData", new { id = item.TableId }, new { nom = item.mem_age })*@
-
-            @*<div class="form-group">
-                <label class="control-label">City</label>
-                <input asp-for="City" class="form-control" />
-                <span asp-validation-for="City" class="text-danger"></span>
-            </div>*@
-
-
-
+        </div>
         }
-
-        @*@if (Model != null)
-        {
-        @for (int i = 0; i < Model.Count; i++)bhuhyjjjjj
-        {
-            @Html.TextBoxFor(m => Model[i].TableId)
-            @Html.TextBoxFor(m => Model[i].Column)
-            @Html.TextBoxFor(m => Model[i].FieldValue)
-
-
-        }
-        }*@
 
 
         <div class="form-group ml-3 mt-2">

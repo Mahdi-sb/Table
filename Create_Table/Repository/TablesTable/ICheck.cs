@@ -14,27 +14,27 @@ namespace Create_Table.Repository
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        string Check_Column_Count(TableView model);
+        string CheckColumnCount(TableView model);
         /// <summary>
         /// show error if Name of table exixst 
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        string Check_Name( TableView model);
+        string CheckName( TableView model);
         /// <summary>
         /// show error if column name is repeptive 
         /// </summary>
         /// <param name="Context"></param>
         /// <param name="model"></param>
         /// <returns></returns>
-        string Check_Column_Name(AppDBcontext Context, TableView model);
+        string CheckColumnName(AppDBcontext Context, TableView model);
         /// <summary>
         /// check all error of page and show 
         /// </summary>
         /// <param name="Context"></param>
         /// <param name="model"></param>
         /// <returns></returns>
-        string Check_Input(AppDBcontext Context,TableView model);
+        string CheckInput(AppDBcontext Context,TableView model);
 
 
     }
