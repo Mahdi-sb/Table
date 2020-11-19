@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Create_Table.Repository.ValueTable
+namespace Create_Table.Service.AddData
 {
-    interface ICheck
+   public interface ICheckValue
     {
         /// <summary>
         /// check field value to not have digit on it
@@ -32,8 +32,5 @@ namespace Create_Table.Repository.ValueTable
         /// <param name="values"></param>
         /// <returns></returns>
         string CheckValues(List<ValueView> values);
-
-
-
     }
 }

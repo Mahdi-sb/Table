@@ -1,13 +1,12 @@
-﻿using Create_Table.Models.DBcontext;
-using Create_Table.ViewModel;
+﻿using Create_Table.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Create_Table.Repository
+namespace Create_Table.Service.CreateTable
 {
-    interface ICheck
+    public interface ICheckInput
     {
         /// <summary>
         /// show error if have not column yet 
@@ -20,22 +19,20 @@ namespace Create_Table.Repository
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        string CheckName( TableView model);
+        string CheckName(TableView model);
         /// <summary>
         /// show error if column name is repeptive 
         /// </summary>
         /// <param name="Context"></param>
         /// <param name="model"></param>
         /// <returns></returns>
-        string CheckColumnName(AppDBcontext Context, TableView model);
+        string CheckColumnName(TableView model);
         /// <summary>
         /// check all error of page and show 
         /// </summary>
         /// <param name="Context"></param>
         /// <param name="model"></param>
         /// <returns></returns>
-        string CheckInput(AppDBcontext Context,TableView model);
-
-
+        string CheckInput(TableView model);
     }
 }

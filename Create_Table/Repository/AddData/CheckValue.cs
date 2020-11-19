@@ -1,19 +1,19 @@
-﻿using Create_Table.Repository.ValueTable;
+﻿using Create_Table.Service.AddData;
 using Create_Table.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Create_Table.Service.ValueTable
+namespace Create_Table.Repository.AddData
 {
-    public class CheckData : ICheck
+    public class CheckValue :ICheckValue
     {
         public string CheckBool(List<ValueView> values)
         {
             foreach (var item in values)
             {
-                
+
                 if (item.Type == "BOOL" && (item.FieldValue.ToLower() != "true" && item.FieldValue.ToLower() != "false"))
                 {
                     return "متغیر از نوع BOOL فقط شامل true یا false میباشد .";
@@ -31,7 +31,7 @@ namespace Create_Table.Service.ValueTable
                 if (item.Type == "INT" && item.FieldValue.Any(char.IsLetter))
                 {
                     return "متغیر از نوع INT نمیتواند شامل حروف باشد.";
-                   
+
                 }
 
             }

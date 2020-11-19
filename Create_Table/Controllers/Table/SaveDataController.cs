@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Create_Table.Models.DBcontext;
-using Create_Table.Service.ValueTable;
+using Create_Table.Service.AddData;
 using Create_Table.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,14 +9,10 @@ namespace Create_Table.Controllers.Table
 {
     public class SaveDataController : Controller
     {
-
-        private readonly AppDBcontext _dBcontext;
-        private readonly ValueTableService _service = new ValueTableService();
-        private readonly CheckData _check = new CheckData();
-
-        public SaveDataController(AppDBcontext dBcontext)
+        private readonly IAddData _service;
+        public SaveDataController(IAddData service)
         {
-            _dBcontext = dBcontext;
+            _service = service;
         }
 
         /// <summary>
@@ -26,8 +22,8 @@ namespace Create_Table.Controllers.Table
         [HttpGet]
         public IActionResult ChooseTable()
         {
-            var Tables = _dBcontext.Tables.ToList();
-            ViewData["Table"] = Tables;
+            
+            ViewData["Table"] = _service.AllTable();
             return View();
         }
 
@@ -39,7 +35,7 @@ namespace Create_Table.Controllers.Table
         [HttpGet]
         public IActionResult SeedData(int id)
         {
-            var TableData = _dBcontext.Types.Where(x => x.TableId == id).ToList();
+            var TableData = _service.TableData(id);
             List<TypeView> model = new List<TypeView>();
             ////fill viewmodel with corrent  information
             foreach (var item in TableData)
@@ -75,12 +71,12 @@ namespace Create_Table.Controllers.Table
             }
             if (ModelState.IsValid)
             {
-                if (_check.CheckValues(values) != null)
+               string error= _service.AddToValueTable(values);
+                if (error != null)
                 {
-                    ViewData["ErrorMessage"] = _check.CheckValues(values);
+                    ViewData["ErrorMessage"] = error;
                     return View(model);
                 }
-                _service.AddToValueTable(_dBcontext, values);
                 return RedirectToAction("Index", "Home");
             }
             ViewData["ErrorMessage"] = "فیلد هارا پر کنید";
