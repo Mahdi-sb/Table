@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Create_Table.Service.CreateTable
+namespace Create_Table.Repository.CreateTable
 {
    public interface ICreate
     {

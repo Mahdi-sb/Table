@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Type = Create_Table.Models.Type;
 
-namespace Create_Table.Service.AddData
+namespace Create_Table.Repository.AddData
 {
    public interface IAddData
     {

@@ -1,6 +1,6 @@
 ﻿using Create_Table.Models;
 using Create_Table.Models.DBcontext;
-using Create_Table.Service.AddData;
+using Create_Table.Repository.AddData;
 using Create_Table.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -8,11 +8,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Type = Create_Table.Models.Type;
 
-namespace Create_Table.Repository.AddData
+namespace Create_Table.Service.AddData
 {
     public class AddValueToDB :IAddData
     {
-        AppDBcontext Context;
+        readonly AppDBcontext Context;
         private readonly ICheckValue _check ;
 
         public AddValueToDB(AppDBcontext dbContext , ICheckValue check)

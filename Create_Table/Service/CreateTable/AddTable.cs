@@ -1,16 +1,16 @@
 ﻿using Create_Table.Models.DBcontext;
-using Create_Table.Service.CreateTable;
+using Create_Table.Repository.CreateTable;
 using Create_Table.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Create_Table.Repository
+namespace Create_Table.Service.CreateTable
 {
     public class AddTable :ICreate
     {
-        AppDBcontext Context;
+        readonly AppDBcontext Context;
        private readonly ICheckInput _Check;
 
         public AddTable(AppDBcontext dbContext, ICheckInput check)

@@ -1,11 +1,11 @@
-﻿using Create_Table.Service.AddData;
+﻿using Create_Table.Repository.AddData;
 using Create_Table.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Create_Table.Repository.AddData
+namespace Create_Table.Service.AddData
 {
     public class CheckValue :ICheckValue
     {

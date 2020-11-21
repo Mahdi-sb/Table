@@ -1,4 +1,4 @@
-﻿using Create_Table.Service.CreateTable;
+﻿using Create_Table.Repository.CreateTable;
 using Create_Table.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 

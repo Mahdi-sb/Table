@@ -1,4 +1,4 @@
-﻿using Create_Table.Service;
+﻿using Create_Table.Repository.ShowData;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Create_Table.Controllers.Table
@@ -7,8 +7,8 @@ namespace Create_Table.Controllers.Table
 
     public class ShowController : Controller
     {
-        private readonly Ishow _show;
-        public ShowController(Ishow show)
+        private readonly IShow _show;
+        public ShowController(IShow show)
         {
             _show = show;
         }

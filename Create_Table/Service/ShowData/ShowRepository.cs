@@ -1,16 +1,17 @@
 ﻿using Create_Table.Models;
 using Create_Table.Models.DBcontext;
+using Create_Table.Repository.ShowData;
 using Create_Table.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Create_Table.Repository
+namespace Create_Table.Service.ShowData
 {
-    public class ShowRepository : Ishow
+    public class ShowRepository : IShow
     {
-        AppDBcontext Context;
+        readonly AppDBcontext Context;
         public ShowRepository(AppDBcontext dBcontext)
         {
             Context = dBcontext;

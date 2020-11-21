@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using Create_Table.Models.DBcontext;
-using Create_Table.Service.AddData;
+using Create_Table.Repository.AddData;
 using Create_Table.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 
